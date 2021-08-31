@@ -21,7 +21,7 @@ const Header = ({ category, setCategory, word, setWord }) => {
 
   return (
     <div className="header">
-      <span className="title">Word Hunt</span>
+      <span className="title">{word ? word : "Word Hunt"}</span>
       <div className="inputs">
         {/* Material UI Theme Provider Component */}
         <ThemeProvider theme={darkTheme}>
@@ -33,6 +33,7 @@ const Header = ({ category, setCategory, word, setWord }) => {
             onChange={(e) => setWord(e.target.value)}
           />
           <TextField
+            className="select"
             select
             label="Language"
             value={category}
