@@ -2,6 +2,7 @@ import "./App.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Container } from "@material-ui/core";
+import Header from "./components/header/Header";
 
 function App() {
   // state management
@@ -40,7 +41,7 @@ function App() {
         maxWidth="md"
         style={{ display: "flex", flexDirection: "column", height: "100vh" }}
       >
-        Dictionary
+        <Header />
       </Container>
     </div>
   );
