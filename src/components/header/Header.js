@@ -6,8 +6,9 @@ import {
   createTheme,
   MenuItem,
 } from "@material-ui/core";
+import categories from "../../data/category";
 
-const Header = () => {
+const Header = ({ category, setCategory }) => {
   // Material UI Dark Theme
   const darkTheme = createTheme({
     palette: {
@@ -26,8 +27,17 @@ const Header = () => {
         <ThemeProvider theme={darkTheme}>
           {/* Material UI TextField Component */}
           <TextField id="standard-basic" label="Enter a word" />
-          <TextField id="standard-select-currency" label="Select">
-            <MenuItem>English</MenuItem>
+          <TextField
+            select
+            id="standard-select-currency"
+            label="Language"
+            value={category}
+          >
+            {categories.map((option) => (
+              <MenuItem key={option.label} value={option.label}>
+                {option.value}
+              </MenuItem>
+            ))}
           </TextField>
         </ThemeProvider>
       </div>

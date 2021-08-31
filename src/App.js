@@ -8,6 +8,7 @@ function App() {
   // state management
   const [meanings, setMeanings] = useState([]);
   const [word, setWord] = useState("");
+  const [category, setCategory] = useState("en");
 
   // fetch data from API
   const dictionaryApi = async () => {
@@ -41,7 +42,7 @@ function App() {
         maxWidth="md"
         style={{ display: "flex", flexDirection: "column", height: "100vh" }}
       >
-        <Header />
+        <Header category={category} setCategory={setCategory} />
       </Container>
     </div>
   );
