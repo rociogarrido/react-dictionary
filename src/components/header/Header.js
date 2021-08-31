@@ -1,6 +1,11 @@
 import React from "react";
 import "./Header.css";
-import { TextField, ThemeProvider, createTheme } from "@material-ui/core";
+import {
+  TextField,
+  ThemeProvider,
+  createTheme,
+  MenuItem,
+} from "@material-ui/core";
 
 const Header = () => {
   // Material UI Dark Theme
@@ -21,6 +26,9 @@ const Header = () => {
         <ThemeProvider theme={darkTheme}>
           {/* Material UI TextField Component */}
           <TextField id="standard-basic" label="Enter a word" />
+          <TextField id="standard-select-currency" label="Select">
+            <MenuItem>English</MenuItem>
+          </TextField>
         </ThemeProvider>
       </div>
     </div>
