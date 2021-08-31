@@ -8,7 +8,7 @@ import {
 } from "@material-ui/core";
 import categories from "../../data/category";
 
-const Header = ({ category, setCategory }) => {
+const Header = ({ category, setCategory, word, setWord }) => {
   // Material UI Dark Theme
   const darkTheme = createTheme({
     palette: {
@@ -26,12 +26,17 @@ const Header = ({ category, setCategory }) => {
         {/* Material UI Theme Provider Component */}
         <ThemeProvider theme={darkTheme}>
           {/* Material UI TextField Component */}
-          <TextField id="standard-basic" label="Enter a word" />
+          <TextField
+            className="search"
+            label="Enter a word"
+            value={word}
+            onChange={(e) => setWord(e.target.value)}
+          />
           <TextField
             select
-            id="standard-select-currency"
             label="Language"
             value={category}
+            onChange={(e) => setCategory(e.target.value)}
           >
             {categories.map((option) => (
               <MenuItem key={option.label} value={option.label}>
