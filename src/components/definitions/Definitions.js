@@ -1,7 +1,7 @@
 import React from "react";
 import "./Definitions.css";
 
-const Definitions = ({ word, meanings, category }) => {
+const Definitions = ({ word, meanings, category, lightMode }) => {
   return (
     <div className="meanings">
       {/* Render audio element if it exists, the language is english and a search has been initiated */}
@@ -23,7 +23,10 @@ const Definitions = ({ word, meanings, category }) => {
             item.definitions.map((def) => (
               <div
                 className="singleMean"
-                style={{ backgroundColor: "white", color: "black" }}
+                style={{
+                  backgroundColor: lightMode ? "#3b5360" : "white",
+                  color: lightMode ? "white" : "black",
+                }}
               >
                 {/* Render definitions, examples and synonyms when they can be provided by the API */}
                 <b>{def.definition}</b>

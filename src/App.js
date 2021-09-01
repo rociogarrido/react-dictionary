@@ -54,6 +54,7 @@ function App() {
         backgroundColor: lightMode ? "#fff" : "#282c34",
         color: lightMode ? "black" : "white",
         height: "100vh",
+        transition: "all 0.5s linear",
       }}
     >
       <Container
@@ -79,9 +80,15 @@ function App() {
           setCategory={setCategory}
           word={word}
           setWord={setWord}
+          lightMode={lightMode}
         />
         {meanings && (
-          <Definitions word={word} meanings={meanings} category={category} />
+          <Definitions
+            word={word}
+            meanings={meanings}
+            category={category}
+            lightMode={lightMode}
+          />
         )}
       </Container>
     </div>
