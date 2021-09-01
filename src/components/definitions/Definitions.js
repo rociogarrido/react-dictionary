@@ -14,8 +14,21 @@ const Definitions = ({ word, meanings, category }) => {
                 className="singleMean"
                 style={{ backgroundColor: "white", color: "black" }}
               >
-                {/* Render definitions / synonyms when they can be provided by the API */}
+                {/* Render definitions, examples and synonyms when they can be provided by the API */}
                 <b>{def.definition}</b>
+                <hr style={{ backgroundColor: "white", width: "100%" }}></hr>
+                {def.example && (
+                  <span>
+                    <b>Example: </b>
+                    {def.example}
+                  </span>
+                )}
+                {def.synonyms && (
+                  <span>
+                    <b>Synonyms: </b>
+                    {def.synonyms.map((syn) => `${syn}, `)}
+                  </span>
+                )}
               </div>
             ))
           )
