@@ -11,6 +11,7 @@ function App() {
   const [meanings, setMeanings] = useState([]);
   const [word, setWord] = useState("");
   const [category, setCategory] = useState("en");
+  const [lightMode, setLightMode] = useState(false);
 
   // Material UI Component for switching between Light / Dark Mode
   const ThemeSwitcher = withStyles({
@@ -50,19 +51,28 @@ function App() {
     <div
       className="App"
       style={{
-        backgroundColor: "#282c34",
-        color: "white",
+        backgroundColor: lightMode ? "#fff" : "#282c34",
+        color: lightMode ? "black" : "white",
         height: "100vh",
       }}
     >
       <Container
         maxWidth="md"
-        style={{ display: "flex", flexDirection: "column", height: "100vh" }}
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          height: "100vh",
+          justifyContent: "space-evenly",
+        }}
       >
         <div
           style={{ position: "absolute", top: 0, right: 15, paddingTop: 10 }}
         >
-          <ThemeSwitcher />
+          <span>{lightMode ? "Dark" : "Light"} Mode</span>
+          <ThemeSwitcher
+            checked={lightMode}
+            onChange={() => setLightMode(!lightMode)}
+          />
         </div>
         <Header
           category={category}
