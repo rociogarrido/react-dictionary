@@ -1,15 +1,31 @@
 import "./App.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Container } from "@material-ui/core";
+import { Container, withStyles, Switch } from "@material-ui/core";
 import Header from "./components/header/Header";
 import Definitions from "./components/definitions/Definitions";
+import { grey } from "@material-ui/core/colors";
 
 function App() {
   // state management
   const [meanings, setMeanings] = useState([]);
   const [word, setWord] = useState("");
   const [category, setCategory] = useState("en");
+
+  // Material UI Component for switching between Light / Dark Mode
+  const ThemeSwitcher = withStyles({
+    switchBase: {
+      color: grey[50],
+      "&$checked": {
+        color: grey[900],
+      },
+      "&$checked + $track": {
+        backgroundColor: grey[500],
+      },
+    },
+    checked: {},
+    track: {},
+  })(Switch);
 
   // fetch data from API
   const dictionaryApi = async () => {
