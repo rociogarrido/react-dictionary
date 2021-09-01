@@ -3,6 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Container } from "@material-ui/core";
 import Header from "./components/header/Header";
+import Definitions from "./components/definitions/Definitions";
 
 function App() {
   // state management
@@ -48,6 +49,9 @@ function App() {
           word={word}
           setWord={setWord}
         />
+        {meanings && (
+          <Definitions word={word} meanings={meanings} category={category} />
+        )}
       </Container>
     </div>
   );
