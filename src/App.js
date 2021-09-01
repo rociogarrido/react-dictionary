@@ -59,6 +59,11 @@ function App() {
         maxWidth="md"
         style={{ display: "flex", flexDirection: "column", height: "100vh" }}
       >
+        <div
+          style={{ position: "absolute", top: 0, right: 15, paddingTop: 10 }}
+        >
+          <ThemeSwitcher />
+        </div>
         <Header
           category={category}
           setCategory={setCategory}
